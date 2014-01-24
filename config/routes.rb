@@ -8,16 +8,17 @@ Ritly::Application.routes.draw do
 
   get "/go", to: "go#index", as: :go_index
 
+  get "/go/new", to: "go#new", as: :go_new
+
   get "/go/:id", to: "go#show", as: :go_show
   
   get "/go/:id/edit", to: "go#edit", as: :go_edit
 
   get "/go/:id/preview", to: "go#preview", as: :go_preview
   
+  post "/go", to: "go#create"
 
-  post "/go", to: "go#create", as: :go_create
-
-  patch "/go/:id", to: "go#update", as: :go_update
+  patch "/go/:id", to: "go#update"
 
 
 

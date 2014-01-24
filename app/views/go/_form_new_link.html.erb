@@ -1,0 +1,11 @@
+<div>
+
+<%= form_for @link, method: :post, url: go_path do |link| %>
+
+<%= link.text_field :url, placeholder: "enter link to be shortened." %>
+<br />
+<%= link.submit class: "btn btn-primary"%>
+
+<% end %>
+
+</div>
