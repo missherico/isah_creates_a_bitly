@@ -9,12 +9,8 @@ class GoController < ApplicationController
     @link = Link.new
   end
 
-  def show
-  	@link = Link.find(params[:rand_str])
-  end
-
   def create
-    search_str = params.require(:link).permit(:url)    
+    search_str = params.require(:link).permit(:url)
 
     # new hash to create, random string
     new_str_hash = {"rand_str" => Link.gen_random_str}
@@ -23,23 +19,26 @@ class GoController < ApplicationController
     new_link = Link.create(updated_params)
 
     redirect_to go_preview_path(new_link.rand_str)
-
   end
 
   def preview
   	id = params[:rand_str]
-    @link = Link.find(id)
+    @link = Link.find_by_rand_str(id)
+binding.pry
   	#create counter here - at click.
-
-
+    render :preview
   end 
 
-  def edit
-  end
+   def redirect
 
-  def update
-  end
+    
+   end
 
+
+
+  def delete
+
+  end
 
 
 end
