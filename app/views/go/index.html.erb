@@ -20,12 +20,29 @@ i will have:
     -----------------------------------------
 
 <p>
-  
-<% @links.each do |link| %>
-URL: <%= link.url %><br />
-Shortened_link: <%= link.rand_str %><br />
-Created at: <%= link.created_at %><br />
-Last Updated: <%= link.updated_at %>
-<br />
-<br />
-<% end %>
+<div class="row col-xs-10 col-xs-offset-1">
+  <table class="table">
+    <tr>
+    <td>URL</td>
+    <td>Shortened_link</td>
+    <td>Created at:</td>
+    <td>Last Updated:</td>
+    </tr>
+    <% @links.each do |link| %>
+    <tr>
+
+    <td><%= link.url %></td>
+    <td>
+      <%= link_to "#{link.rand_str}", go_preview_path(:rand_str) %>
+    </td>
+
+    <td><%= localize(link.created_at, format: :short)%></td>
+    <td><%= localize(link.updated_at, format: :short) %></td>
+    </tr>
+    <% end %>
+
+  </table>
+</div>
+
+
+

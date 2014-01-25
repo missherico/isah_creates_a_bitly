@@ -2,7 +2,9 @@ class GoController < ApplicationController
 
 
   def index
-  	@links = Link.all
+
+  	@links = (Link.all).each do Link.time_stamp end  		
+
   end
 
   def new
@@ -24,14 +26,17 @@ class GoController < ApplicationController
   def preview
   	id = params[:rand_str]
     @link = Link.find_by_rand_str(id)
-binding.pry
-  	#create counter here - at click.
+
     render :preview
   end 
 
    def redirect
+    #at every redirect, add +1 to the counter table
+    id = params[:rand_str]
+    (Link.find_by_rand_str(id)) |update| update.counter += 1
 
-    
+
+     
    end
 
 
