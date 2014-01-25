@@ -24,20 +24,24 @@ i will have:
   <table class="table">
     <tr>
     <td>URL</td>
-    <td>Shortened_link</td>
-    <td>Created at:</td>
-    <td>Last Updated:</td>
+    <td>Short Link</td>
+    <td>Created On</td>
+    <td>Last Clicked</td>
+    <td>Counter</td>
     </tr>
     <% @links.each do |link| %>
     <tr>
-
-    <td><%= link.url %></td>
     <td>
-      <%= link_to "#{link.rand_str}", go_preview_path(:rand_str) %>
+      <%= link.url %></td>
+    <td>
+      <a href="/go/<%=link.rand_str %>/preview">
+      <%= link.rand_str %>
+      </a>
+
     </td>
 
     <td><%= localize(link.created_at, format: :short)%></td>
-    <td><%= localize(link.updated_at, format: :short) %></td>
+    <td><%= link.time_log %></td>
     </tr>
     <% end %>
 

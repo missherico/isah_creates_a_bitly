@@ -3,7 +3,9 @@ class GoController < ApplicationController
 
   def index
 
-  	@links = (Link.all).each do Link.time_stamp end  		
+  	@links = Link.all
+  	id = params[:rand_str]
+    @link = Link.find_by_rand_str(id)
 
   end
 
@@ -27,7 +29,6 @@ class GoController < ApplicationController
   	id = params[:rand_str]
     @link = Link.find_by_rand_str(id)
 
-    render :preview
   end 
 
    def redirect
