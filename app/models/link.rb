@@ -13,7 +13,7 @@ class Link < ActiveRecord::Base
 
 def self.gen_random_str
 
-  str = SecureRandom.hex(3).to_s
+  SecureRandom.hex(3).to_s
 
   
   #insert secure string in column
@@ -22,7 +22,8 @@ def self.gen_random_str
 
   #relate string to ID & backwards
 
-  self.save
+
+
 end
 
 

@@ -19,6 +19,13 @@ i will have:
 
     -----------------------------------------
 
-    
-
-<%= @links %>
+<p>
+  
+<% @links.each do |link| %>
+URL: <%= link.url %><br />
+Shortened_link: <%= link.rand_str %><br />
+Created at: <%= link.created_at %><br />
+Last Updated: <%= link.updated_at %>
+<br />
+<br />
+<% end %>

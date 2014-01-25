@@ -10,26 +10,28 @@ class GoController < ApplicationController
   end
 
   def show
-  	id = params[:id]
-  	@link = Link.find(id)
+  	@link = Link.find(params[:rand_str])
   end
 
   def create
-    search_str = params.require(:link).permit(:url)
-    #check if new link already exists
-    new_str = SecureRandom.hex(3).to_s
-    new_str_hash = {"rand_str" => new_str}
+    search_str = params.require(:link).permit(:url)    
 
+    # new hash to create, random string
+    new_str_hash = {"rand_str" => Link.gen_random_str}
     updated_params = search_str.merge(new_str_hash)
 
-binding.pry    
     new_link = Link.create(updated_params)
 
-    redirect_to go_show_path(new_link.id)
+    redirect_to go_preview_path(new_link.rand_str)
 
   end
 
   def preview
+  	id = params[:rand_str]
+    @link = Link.find(id)
+  	#create counter here - at click.
+
+
   end 
 
   def edit

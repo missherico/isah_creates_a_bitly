@@ -10,11 +10,11 @@ Ritly::Application.routes.draw do
 
   get "/go/new", to: "go#new", as: :go_new
 
-  get "/go/:id", to: "go#show", as: :go_show
+  get "/go/:rand_str", to: "go#show", as: :go_show
   
   get "/go/:id/edit", to: "go#edit", as: :go_edit
 
-  get "/go/:id/preview", to: "go#preview", as: :go_preview
+  get "/go/:rand_str/preview", to: "go#preview", as: :go_preview
   
   post "/go", to: "go#create"
 
