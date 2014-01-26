@@ -34,9 +34,20 @@ class GoController < ApplicationController
    def redirect
     #at every redirect, add +1 to the counter table
     id = params[:rand_str]
-    (Link.find_by_rand_str(id)) |update| update.counter += 1
+    link = Link.find_by_rand_str(id)
+    link.time_log = []
+    new_click_time = [Time.now]    
+    link.time_log.insert(0, new_click_time)    
+binding.pry
 
+    ping = 1
 
+    if link.counter = 0
+    	link.counter = 1
+    else
+    link.counter += 1
+    end
+    binding.pry
      
    end
 

@@ -1,4 +1,18 @@
 <%= @link %>
 
+<div class="row col-xs-10 col-xs-offset-1">
+
+<div>
+<h3>Let's go there. now. <br />
+	<a href="/go/<%= @link.rand_str%>">
+		<%= @link.rand_str %>
+	</a>
+</h3>
+</div>
+
+
 There needs to be a button to go to the next page. 
 POST, route to go/:rand_str
+
+
+</div>
