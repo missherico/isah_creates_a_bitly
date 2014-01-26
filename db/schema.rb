@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140126173635) do
+ActiveRecord::Schema.define(version: 20140126210026) do
 
   create_table "links", force: true do |t|
     t.string   "url"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140126173635) do
     t.integer  "counter",    limit: 255, default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "time_log",   limit: 255
+    t.string   "time_log"
   end
 
 end
