@@ -3,7 +3,7 @@ class CreateLinks < ActiveRecord::Migration
     create_table :links do |t|
       t.string :url
       t.string :rand_str
-      t.integer :counter
+      t.string :counter
 
       t.timestamps
     end

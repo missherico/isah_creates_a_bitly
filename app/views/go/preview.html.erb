@@ -8,6 +8,7 @@
 		<%= @link.rand_str %>
 	</a>
 </h3>
+<%= button_to "Delete", {controller: :go, action: :destroy, id: @link[:id]}, method: :delete %>
 </div>
 
 

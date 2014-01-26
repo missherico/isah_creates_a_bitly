@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140125205910) do
+ActiveRecord::Schema.define(version: 20140126032311) do
 
   create_table "links", force: true do |t|
     t.string   "url"
     t.string   "rand_str"
-    t.string   "counter"
+    t.integer  "counter",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "time_log"

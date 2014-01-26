@@ -16,7 +16,8 @@ Ritly::Application.routes.draw do
   
   post "/go", to: "go#create"
 
-  delete "go/:rand_str", to: "go#delte", as: :go_delete
+  delete "go/:rand_str", to: "go#destroy", as: :go_delete
 
+ 
 
 end

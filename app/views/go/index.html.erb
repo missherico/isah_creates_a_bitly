@@ -18,11 +18,16 @@ i will have:
     2) created, updated
 
     -----------------------------------------
+<div>
+<%= flash[:notice] %>
+</div>
 
 <p>
 <div class="row col-xs-10 col-xs-offset-1">
   <table class="table">
+ 
     <tr>
+    <td>Delete</td>
     <td>URL</td>
     <td>Short Link</td>
     <td>Created On</td>
@@ -32,19 +37,27 @@ i will have:
     <% @links.each do |link| %>
     <tr>
     <td>
-      <%= link.url %></td>
+     <%= check_box_tag("delete[#{link.id}]",1) %>
+
+    </td>  
+    <td><%= link.url %></td>
     <td>
       <a href="/go/<%=link.rand_str %>/preview">
       <%= link.rand_str %>
       </a>
-
     </td>
 
-    <td><%= localize(link.created_at, format: :short)%></td>
-    <td><%= link.time_log %></td>
+    <td>
+      <%= localize(link.created_at, format: :short)%>
+    </td>
+    <td>
+      <%= link.time_log %>
+    </td>  
+    <td>
+      <%= link.counter %>
+    </td>
     </tr>
     <% end %>
-
   </table>
 </div>
 

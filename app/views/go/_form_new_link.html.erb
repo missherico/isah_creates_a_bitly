@@ -2,7 +2,7 @@
 
 <%= form_for @link, method: :post, url: go_path do |link| %>
 
-<%= link.text_field :url, placeholder: "enter link to be shortened." %>
+<%= link.url_field :url, placeholder: "enter link to be shortened." %>
 <br />
 <%= link.submit class: "btn btn-primary"%>
 
