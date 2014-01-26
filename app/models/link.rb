@@ -13,18 +13,12 @@ def self.gen_random_str
 end
 
 
-def self.update_counter
-  
-  Link.insert
+def self.increment!
+
+	update_attribute(:counter, counter + 1)
 
 end
 
-
-def self.clean_up_url
-   
-    new_url = search_str.values.slice(0).prepend("http://")
-
-end
 
 
 

@@ -7,9 +7,6 @@ class GoController < ApplicationController
   	id = params[:rand_str]
     @link = Link.find_by_rand_str(id)
 
-    # params[:delete].each do |id|
-    #   Link.find(id.to_i).destroy
-    # end
   end
 
   def new
@@ -24,37 +21,41 @@ class GoController < ApplicationController
     updated_params = search_str.merge(new_str_hash)
     new_link = Link.create(updated_params)
 
+    # first_time = [new_link.created_at]
+    # new_link.update(counter: 1)
+    # new_link.update(time_log: first_time)
 
+binding.pry
     redirect_to go_preview_path(new_link.rand_str)
   end
 
   def preview
   	id = params[:rand_str]
     @link = Link.find_by_rand_str(id)
+@link.update_attribute("counter", @link.counter + 1)
 
+
+
+    # if link.time_log == nil
+    #   link.time_log = []
+    #   a = link.time_log
+    #   first = [link.created_at]
+    #   a.insert(0, first)      
+    # else
+    #   a = link.time_log
+    #   now = [Time.now]
+    #   a.insert(0, now)
+    # end   
 
   end 
 
    def redirect
     id = params[:rand_str]
     link = Link.find_by_rand_str(id)
-    link.time_log = []
+    link.update_attribute("counter", link.counter + 1)
 
-    if link.time_log == nil
-      link.time_log = []
-      initial_time = [link.created_at]
-      link.time_log.insert(0, initial_time)      
-    else
-      new_click_time = [Time.now]
-      link.time_log.insert(0, new_click_time)
-    end    
 
-    if link.counter == nil
-      link.counter = 1
-    else
-      link.counter += 1
-    end
-
+    redirect_to link.url
 
     
    end
