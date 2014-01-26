@@ -13,12 +13,6 @@ def self.gen_random_str
 end
 
 
-def self.increment!
-
-	update_attribute(:counter, counter + 1)
-
-end
-
 
 
 

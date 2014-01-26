@@ -7,6 +7,15 @@ class GoController < ApplicationController
   	id = params[:rand_str]
     @link = Link.find_by_rand_str(id)
 
+    if @link.time_log == nil
+      @link.time_log = []
+      now = [Time.now]
+      @link.time_log.insert(0, now)
+    else
+      now = [Time.now]
+      @link.time_log.insert(0, now)
+    end
+    binding.pry
   end
 
   def new
@@ -21,31 +30,23 @@ class GoController < ApplicationController
     updated_params = search_str.merge(new_str_hash)
     new_link = Link.create(updated_params)
 
-    # first_time = [new_link.created_at]
-    # new_link.update(counter: 1)
-    # new_link.update(time_log: first_time)
 
-binding.pry
+
     redirect_to go_preview_path(new_link.rand_str)
   end
 
   def preview
   	id = params[:rand_str]
     @link = Link.find_by_rand_str(id)
-@link.update_attribute("counter", @link.counter + 1)
+    @link.update_attribute("counter", @link.counter + 1)
+    if @link.time_log == nil
+      @link.time_log = []
+    end
+    now = [Time.now]
+    @link.time_log.insert(0, now)
+binding.pry
 
-
-
-    # if link.time_log == nil
-    #   link.time_log = []
-    #   a = link.time_log
-    #   first = [link.created_at]
-    #   a.insert(0, first)      
-    # else
-    #   a = link.time_log
-    #   now = [Time.now]
-    #   a.insert(0, now)
-    # end   
+  
 
   end 
 
@@ -53,7 +54,20 @@ binding.pry
     id = params[:rand_str]
     link = Link.find_by_rand_str(id)
     link.update_attribute("counter", link.counter + 1)
+    link.update_attribute("time_log", (link.time_log << [Time.now]).first)
 
+binding.pry
+    # if link.time_log == nil
+    #   link.time_log = []
+    #   a = link.time_log
+    #   first = [link.created_at]
+    #   a.insert(0, first)      
+      
+    # else
+    #   a = link.time_log
+    #   now = [Time.now]
+    #   a.insert(0, now)
+    # end 
 
     redirect_to link.url
 
