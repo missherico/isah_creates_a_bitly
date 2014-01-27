@@ -1,9 +1,27 @@
+/*font-family: 'Lora', serif;
+font-family: 'Pompiere', cursive;*/
+
+.buttonfont {
+  font-family: 'Lora', serif;
+  font-size: 28px;
+}
+
+.frontpage {
+  font-family: 'Pompiere', cursive;
+  font-size: 100px;
+  color: white;
+  line-height: 180px;
+}
+
+.blacktransparentdiv {
+   background: rgba(0,0,0, 0.8);
+
+
+}
 
 .transparentdiv
 {
   background: rgba(255,255,255, 0.8);
-  -moz-border-radius: 15px;
-  border-radius: 15px;
 
 }
 
