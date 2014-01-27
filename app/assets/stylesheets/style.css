@@ -19,6 +19,14 @@ font-family: 'Pompiere', cursive;*/
   color: #120714;
 }
 
+.newpageheader {
+  font-family: 'Pompiere', cursive;
+  font-size: 60px;
+  line-height: 120px;
+  color: #120714;
+
+}
+
 .lora {
   font-family: 'Lora', serif;
 }
