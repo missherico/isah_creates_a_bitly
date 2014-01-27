@@ -29,12 +29,8 @@ class GoController < ApplicationController
   def preview
   	id = params[:rand_str]
     @link = Link.find_by_rand_str(id)
-    @link.update_attribute("counter", @link.counter + 1)
-    
-
-  
-
   end 
+
 
    def redirect
     id = params[:rand_str]

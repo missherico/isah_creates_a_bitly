@@ -1,6 +1,12 @@
 /*font-family: 'Lora', serif;
 font-family: 'Pompiere', cursive;*/
 
+a:link { color: #652e88; text-decoration: none !important;} /* unvisited links */
+a:visited { color: #652e88; text-decoration: none !important;} /* visited links */
+a:hover { color: #652e88; font-weight: bold; text-decoration: none !important; } /* user hovers */
+a:active { color: #652e88; text-decoration: none !important;} /* active links */
+
+
 .buttonfont {
   font-family: 'Lora', serif;
   font-size: 28px;
@@ -21,9 +27,15 @@ font-family: 'Pompiere', cursive;*/
 
 .newpageheader {
   font-family: 'Pompiere', cursive;
-  font-size: 60px;
-  line-height: 120px;
+  font-size: 50px;
+  line-height: 70px;
   color: #120714;
+}
+
+.previewpageheader {
+  font-family: 'Lora', serif;
+  font-size: 44px;
+  line-height: 54px; 
 
 }
 
@@ -33,6 +45,10 @@ font-family: 'Pompiere', cursive;*/
 
 .transparentgrey{
   background: rgba(12,12,12, 0.5);
+}
+
+.transparentnav {
+  background: rgba(255,255,255, 0.5);
 }
 
 .transparentdiv{

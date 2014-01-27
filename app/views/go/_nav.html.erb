@@ -1,0 +1,6 @@
+<ol class="breadcrumb transparentnav">
+  <li><%= link_to "Shorten a new link.", {controller: :go, action: :new, url: go_new_path}, method: :get, class: "lora"%></li>
+  <li><%= link_to "Delete this link.", {controller: :go, action: :destroy, id: @link[:id]}, method: :delete, class: "lora"%></li>
+  <li><%= link_to "Back to my links.", {controller: :go, action: :index, url: go_index_path}, method: :get, class: "lora"%></li>
+</ol>
+
