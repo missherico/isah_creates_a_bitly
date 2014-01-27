@@ -49,11 +49,7 @@ class GoController < ApplicationController
     new_time_hash = {"time_log" => recent}
     #link.update_attribute(new_time_hash)
 
-
-
-    redirect_to link.url
-
-    
+    redirect_to link.url    
    end
 
 

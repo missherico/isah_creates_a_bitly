@@ -1,68 +1,30 @@
+<body class="indexpage">
+<div class="row">
 
-hi, i am bookmark.
-i will have:
-
-   a text field to enter link that needs to be shortened.
-
-   a background that changes
-     -main: at size change
-     -main: at each page
-
-   -------- separated by a line ------------
-
-   here, this will have:
-     1 row, 2 or 3 columns -
-      xs-12, med-6, lg-6, xl-4
-
-    1) counter of how many times one has used this link
-    2) created, updated
-
-    -----------------------------------------
-<div>
+<br/>
+<div class="col-xs-6 text-center">
 <%= flash[:notice] %>
 </div>
-
-<p>
-<div class="row col-xs-10 col-xs-offset-1">
-  <table class="table">
- 
-    <tr>
-    <td>Delete</td>
-    <td>URL</td>
-    <td>Short Link</td>
-    <td>Created On</td>
-    <td>Last Clicked</td>
-    <td>Counter</td>
-    </tr>
-    <% @links.each do |link| %>
-    <tr>
-    <td>
-     <%= check_box_tag("delete[#{link.id}]",1) %>
-
-    </td>  
-    <td><%= link.url %></td>
-    <td>
-      <a href="/go/<%=link.rand_str %>/preview">
-      <%= link.rand_str %>
-      </a>
-    </td>
-
-    <td>
-      <%= localize(link.created_at, format: :short)%>
-    </td>
-    <td>
-    </td>
-
-    <td>
-      <%= link.counter %>
-    </td>
-    <td>
-      <%= link.id %>
-    </td>
-    </tr>
-    <% end %>
-  </table>
 </div>
 
+<div class="row col-xs-10 col-xs-offset-1">
 
+<% @links.each do |link| %>
+  <div>
+  <div class="transparentdiv col-xs-8 col-xs-offset-2 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-1">
+    <br />
 
+      <h4 class="text-center">new link:<br/>
+        <a href="/go/<%=link.rand_str %>/preview">
+        <%= link.rand_str %>
+        </a>
+      </h4>
+      <h1 class="text-center"><%= link.counter %> x</h1>
+      <p><%= localize(link.created_at, format: :short)%></p>
+  
+  </div>
+  </div>
+<% end %>
+
+</div>
+</body>
