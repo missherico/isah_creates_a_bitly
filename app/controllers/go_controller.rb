@@ -35,7 +35,7 @@ class GoController < ApplicationController
    def redirect
     id = params[:rand_str]
     link = Link.find_by_rand_str(id)
-    link.update_attribute("counter", link.counter + 1)
+    link.update_attribute("counter", link.counter += 1)
 
     if link.time_log == nil
       link.time_log = []

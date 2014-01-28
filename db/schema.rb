@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140126210026) do
+ActiveRecord::Schema.define(version: 20140128005457) do
 
   create_table "links", force: true do |t|
     t.string   "url"
@@ -21,5 +21,16 @@ ActiveRecord::Schema.define(version: 20140126210026) do
     t.datetime "updated_at"
     t.string   "time_log"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
+    t.string   "remember_token"
+  end
+
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

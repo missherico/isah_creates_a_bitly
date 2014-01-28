@@ -1,5 +1,10 @@
 Ritly::Application.routes.draw do
 
+  get "sessions/new"
+  get "sessions/destroy"
+  get "users/new"
+  get "users/show"
+  get "users/create"
   root to: "site#index"
   get "/", to: "site#index"
   get "/about", to: "site#about"
@@ -17,6 +22,14 @@ Ritly::Application.routes.draw do
   post "/go", to: "go#create"
 
   delete "go/:rand_str", to: "go#destroy", as: :go_delete
+
+resources :users
+
+  get '/signup', to: 'users#new'
+
+  delete '/signout', to: 'sessions#destroy'
+
+  get '/signin', to: 'sessions#new'
 
  
 

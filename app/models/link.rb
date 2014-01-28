@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: links
+#
+#  id         :integer          not null, primary key
+#  url        :string(255)
+#  rand_str   :string(255)
+#  counter    :integer          default(0)
+#  created_at :datetime
+#  updated_at :datetime
+#  time_log   :string(255)
+#
+
 class Link < ActiveRecord::Base
 
 #validates :url, presence: true
@@ -13,8 +26,12 @@ def self.gen_random_str
 end
 
 
+def check_if_url_created
+  # is the retrieved search string already in the column?
 
 
+
+end
 
 
 end
