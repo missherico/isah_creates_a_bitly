@@ -1,5 +1,6 @@
 class GoController < ApplicationController
 
+before_filter :signed_in_user, only: [:create, :new, :edit, :update]
 
   def index
 
@@ -34,18 +35,18 @@ class GoController < ApplicationController
 
    def redirect
     id = params[:rand_str]
-    link = Link.find_by_rand_str(id)
-    link.update_attribute("counter", link.counter += 1)
-
-    if link.time_log == nil
-      link.time_log = []
-    end
-    now = [Time.now]
-    recent = link.time_log.insert(0, now)
-    new_time_hash = {"time_log" => recent}
-    #link.update_attribute(new_time_hash)
+    link = Link.find_by_rand_str(id).up_counter
 
     redirect_to link.url    
+
+    # if link.time_log == nil
+    #   link.time_log = []
+    # end
+    # now = [Time.now]
+    # recent = link.time_log.insert(0, now)
+    # new_time_hash = {"time_log" => recent}
+    # #link.update_attribute(new_time_hash)
+
    end
 
 

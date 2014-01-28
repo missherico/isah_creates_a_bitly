@@ -25,13 +25,18 @@ def self.gen_random_str
   #relate string to ID & backwards
 end
 
+def up_counter  #no self is an instance method
+    self.update_attributes(counter: counter + 1)
+    return self
+end
 
-def check_if_url_created
+
+def self.check_if_url_created
   # is the retrieved search string already in the column?
 
-
-
 end
+
+
 
 
 end
